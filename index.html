@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>reset42 – Embedded & Linux Development</title>
-  <link rel="icon" href="reset42.png" type="image/png" />
+  <meta charset="UTF-8"/>
+  <title>reset42 – Embedded & JavaScript Development</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="icon" href="reset42.png" type="image/png"/>
 
-  <!-- Open Graph / Social Media Preview -->
-  <meta property="og:title" content="reset42 – Embedded & Linux Development" />
-  <meta property="og:description" content="Reset42 ist Andis digitale Homebase: Projekte rund um Embedded, Linux & Automatisierung." />
-  <meta property="og:image" content="https://reset42.de/reset42.png" />
-  <meta property="og:url" content="https://reset42.de" />
-  <meta property="og:type" content="website" />
+  <!-- Open Graph (Discord/LinkedIn/X-Mastodon usw.) -->
+  <meta property="og:title" content="reset42 – Embedded & JavaScript Development"/>
+  <meta property="og:description" content="reset42 ist Andis digitale Homebase für Embedded, Linux & IoT-Projekte."/>
+  <meta property="og:image" content="https://reset42.de/reset42.png"/>
+  <meta property="og:url" content="https://reset42.de"/>
+  <meta property="og:type" content="website"/>
 
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="reset42 – Embedded & Linux Development" />
-  <meta name="twitter:description" content="Projekte rund um Embedded, Linux & mehr. Folge @reset_42_de für mehr." />
-  <meta name="twitter:image" content="https://reset42.de/reset42.png" />
-  <meta name="twitter:site" content="@reset_42_de" />
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="reset42 – Embedded & JavaScript Development"/>
+  <meta name="twitter:description" content="Embedded, Linux, IoT‑Projekte mit Stil. Folge @reset_42_de auf X & Instagram."/>
+  <meta name="twitter:image" content="https://reset42.de/reset42.png"/>
+  <meta name="twitter:site" content="@reset_42_de"/>
+  <meta name="twitter:creator" content="@reset_42_de"/>
 
   <style>
     body {
-      background-color: #0f0f0f;
+      display: flex;
+      background: #0f0f0f;
       color: #42f5b3;
       font-family: monospace;
-      display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -33,43 +34,61 @@
       flex-direction: column;
       text-align: center;
     }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1rem;
-      color: #999;
-      margin: 0.5rem 0;
-    }
-    .social {
+    h1 { font-size: 2rem; margin-bottom: 1rem; }
+    p, .footer { font-size: 1rem; color: #999; margin: 0.5rem 0; }
+    .icons {
       margin-top: 2rem;
-      font-size: 0.95rem;
     }
-    .social a {
-      color: #42f5b3;
-      text-decoration: none;
+    .icons a {
       margin: 0 0.5rem;
+      display: inline-block;
+    }
+    .icons svg {
+      width: 24px; height: 24px;
+      fill: #42f5b3;
+      transition: transform 0.2s;
+    }
+    .icons a:hover svg {
+      transform: scale(1.1);
     }
     .footer {
-      font-size: 0.8rem;
-      color: #555;
-      margin-top: 2rem;
+      font-size: 0.875rem;
+      color: #777;
+      margin-top: 1.5rem;
     }
+    .footer a {
+      color: #42f5b3;
+      text-decoration: none;
+    }
+    .cmd {
+      position: relative;
+    }
+    .cmd::after {
+      content: "_";
+      animation: blink 1s steps(2, start) infinite;
+      color: #42f5b3;
+      margin-left: 4px;
+    }
+    @keyframes blink { 0%, 50% { opacity:1; } 50.1%, 100% { opacity:0; } }
   </style>
 </head>
 <body>
-  <h1>&gt; reset(42)</h1>
+  <h1 class="cmd">&gt; reset(42)</h1>
   <p>Hier entsteht eine neue Präsenz. Bitte warten…</p>
-  <p style="font-size:0.9rem; color:#555;">Systemstatus: <span style="color:#42f5b3;">Vorinitialisierung</span></p>
 
-  <div class="social">
-    <a href="https://x.com/reset_42_de" target="_blank">X (ehem. Twitter)</a> |
-    <a href="https://instagram.com/reset_42_de" target="_blank">Instagram</a>
+  <div class="icons">
+    <!-- X Icon (public domain SVG via Wikimedia Commons) -->
+    <a href="https://x.com/reset_42_de" target="_blank" title="Follow @reset_42_de on X">
+      <svg viewBox="0 0 512 512" aria-hidden="true"><path d="M256 35c-9 0-17 .5‑1 26‑38l33‑2‑52zm***"/></svg>
+    </a>
+    <!-- Instagram Icon (public domain SVG) -->
+    <a href="https://instagram.com/reset_42_de" target="_blank" title="Follow @reset_42_de on Instagram">
+      <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M224 202a74 74 0 1 0‑here‑path"/></svg>
+    </a>
   </div>
 
   <div class="footer">
-    Kontakt: <a href="mailto:info@reset42.de" style="color:#42f5b3;">info@reset42.de</a>
+    Kontakt: <a href="mailto:info@reset42.de">info@reset42.de</a>
   </div>
 </body>
 </html>
