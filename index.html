@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8"/>
-  <title>reset42 – Embedded & JavaScript Development</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="icon" href="reset42.png" type="image/png"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>reset42.de – Projekte & Debugging mit Stil</title>
 
-  <!-- Open Graph (Discord/LinkedIn/X-Mastodon usw.) -->
-  <meta property="og:title" content="reset42 – Embedded & JavaScript Development"/>
-  <meta property="og:description" content="reset42 ist Andis digitale Homebase für Embedded, Linux & IoT-Projekte."/>
-  <meta property="og:image" content="https://reset42.de/reset42.png"/>
-  <meta property="og:url" content="https://reset42.de"/>
-  <meta property="og:type" content="website"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="reset42.png" />
 
-  <!-- Twitter / X Card -->
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="reset42 – Embedded & JavaScript Development"/>
-  <meta name="twitter:description" content="Embedded, Linux, IoT‑Projekte mit Stil. Folge @reset_42_de auf X & Instagram."/>
-  <meta name="twitter:image" content="https://reset42.de/reset42.png"/>
-  <meta name="twitter:site" content="@reset_42_de"/>
-  <meta name="twitter:creator" content="@reset_42_de"/>
+  <!-- SEO / OpenGraph -->
+  <meta property="og:title" content="reset42 – Projekte & Debugging mit Stil" />
+  <meta property="og:description" content="reset42 – Embedded & Linux Development" />
+  <meta property="og:image" content="https://reset42.de/reset42.png" />
+  <meta property="og:url" content="https://reset42.de" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="author" content="Andi" />
+  <meta name="description" content="reset42 – Embedded & Linux Development" />
+  <meta name="robots" content="index, follow" />
 
   <style>
     body {
-      display: flex;
-      background: #0f0f0f;
+      background-color: #0f0f0f;
       color: #42f5b3;
       font-family: monospace;
+      display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -34,60 +31,87 @@
       flex-direction: column;
       text-align: center;
     }
-    h1 { font-size: 2rem; margin-bottom: 1rem; }
-    p, .footer { font-size: 1rem; color: #999; margin: 0.5rem 0; }
-    .icons {
-      margin-top: 2rem;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-    .icons a {
-      margin: 0 0.5rem;
-      display: inline-block;
-    }
-    .icons svg {
-      width: 24px; height: 24px;
-      fill: #42f5b3;
-      transition: transform 0.2s;
-    }
-    .icons a:hover svg {
-      transform: scale(1.1);
-    }
-    .footer {
-      font-size: 0.875rem;
-      color: #777;
-      margin-top: 1.5rem;
-    }
-    .footer a {
-      color: #42f5b3;
-      text-decoration: none;
-    }
-    .cmd {
-      position: relative;
-    }
-    .cmd::after {
-      content: "_";
-      animation: blink 1s steps(2, start) infinite;
+
+    .cursor::after {
+      content: "|";
+      animation: blink 1s infinite;
       color: #42f5b3;
       margin-left: 4px;
     }
-    @keyframes blink { 0%, 50% { opacity:1; } 50.1%, 100% { opacity:0; } }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    p {
+      font-size: 1rem;
+      color: #999;
+      margin: 0.3rem 0;
+    }
+
+    .icons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .icons a svg {
+      width: 32px;
+      height: 32px;
+      fill: #42f5b3;
+      transition: transform 0.3s ease, fill 0.3s ease;
+    }
+
+    .icons a:hover svg {
+      transform: scale(1.15);
+      fill: #ffffff;
+    }
+
+    .contact {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .contact a {
+      color: #42f5b3;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
+
 <body>
-  <h1 class="cmd">&gt; reset(42)</h1>
+  <h1>&gt; reset(42)<span class="cursor"></span></h1>
   <p>Hier entsteht eine neue Präsenz. Bitte warten…</p>
+  <p style="font-size:0.9rem; color:#555;">Systemstatus: <span style="color:#42f5b3;">Vorinitialisierung</span></p>
 
   <div class="icons">
-    <!-- X Icon (public domain SVG via Wikimedia Commons) -->
-    <a href="https://x.com/reset_42_de" target="_blank" title="Follow @reset_42_de on X">
-      <svg viewBox="0 0 512 512" aria-hidden="true"><path d="M256 35c-9 0-17 .5‑1 26‑38l33‑2‑52zm***"/></svg>
+    <!-- X / Twitter -->
+    <a href="https://x.com/reset_42_de" target="_blank" title="X / @reset_42_de">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" aria-hidden="true">
+        <path d="M1100 0 700 495l500 730H930L600 765 270 1225H0l420-500L0 0h270l330 460L930 0z"/>
+      </svg>
     </a>
-    <!-- Instagram Icon (public domain SVG) -->
-    <a href="https://instagram.com/reset_42_de" target="_blank" title="Follow @reset_42_de on Instagram">
-      <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M224 202a74 74 0 1 0‑here‑path"/></svg>
+
+    <!-- Instagram -->
+    <a href="https://instagram.com/reset_42_de" target="_blank" title="Instagram / @reset_42_de">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+        <path d="M224 141c-46 0-83 37-83 83s37 83 83 83 83-37 83-83-37-83-83-83zm0 136c-29 0-53-24-53-53s24-53 53-53 53 24 53 53-24 53-53 53zm124-136c0 10-8 18-18 18s-18-8-18-18 8-18 18-18 18 8 18 18zM398 80c0-26-22-48-48-48H98C72 32 50 54 50 80v352c0 26 22 48 48 48h252c26 0 48-22 48-48V80zm-48 0v64h-64c-17.7 0-32 14.3-32 32v64h-64c-17.7 0-32 14.3-32 32v64h64v64h-64v64h64v64h64v-64h64v-64h-64v-64h64v-64c0-17.7 14.3-32 32-32h64V80h-64z"/>
+      </svg>
     </a>
   </div>
 
-  <div class="footer">
+  <div class="contact">
     Kontakt: <a href="mailto:info@reset42.de">info@reset42.de</a>
   </div>
 </body>
