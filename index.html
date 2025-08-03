@@ -2,45 +2,74 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>reset42 – Projekte, Code & Chaos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="reset42 – Hier entsteht eine neue Präsenz. Bitte warten…" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="reset42 – Projekte, Code & Chaos" />
-  <meta property="og:description"
-        content="reset42 – Embedded & Linux Development" />
-  <meta property="og:image" content="https://reset42.de/reset42.png" />
-  <meta property="og:url" content="https://reset42.de/" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-
+  <title>reset42 – Embedded & Linux Development</title>
   <link rel="icon" href="reset42.png" type="image/png" />
+
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:title" content="reset42 – Embedded & Linux Development" />
+  <meta property="og:description" content="Reset42 ist Andis digitale Homebase: Projekte rund um Embedded, Linux & Automatisierung." />
+  <meta property="og:image" content="https://reset42.de/reset42.png" />
+  <meta property="og:url" content="https://reset42.de" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="reset42 – Embedded & Linux Development" />
+  <meta name="twitter:description" content="Projekte rund um Embedded, Linux & mehr. Folge @reset_42_de für mehr." />
+  <meta name="twitter:image" content="https://reset42.de/reset42.png" />
+  <meta name="twitter:site" content="@reset_42_de" />
+
   <style>
     body {
-      background: #0f0f0f; color: #42f5b3;
+      background-color: #0f0f0f;
+      color: #42f5b3;
       font-family: monospace;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      height: 100vh; margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      text-align: center;
     }
-    .cmd { font-size:2rem; }
-    .cmd::after { content:"_"; animation:blink 1s steps(2,start) infinite; }
-    @keyframes blink { 0%,50%{opacity:1} 50.1%,100%{opacity:0} }
-    p { font-size:1rem; color:#999; margin-top:0.5rem; }
-    .github-link { margin-top:2rem; }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1rem;
+      color: #999;
+      margin: 0.5rem 0;
+    }
+    .social {
+      margin-top: 2rem;
+      font-size: 0.95rem;
+    }
+    .social a {
+      color: #42f5b3;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    .footer {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
-  <h1 class="cmd">&gt; reset(42)</h1>
+  <h1>&gt; reset(42)</h1>
   <p>Hier entsteht eine neue Präsenz. Bitte warten…</p>
-  <p style="font-size:0.9rem; color:#555;">
-    Systemstatus: <span style="color:#42f5b3;">Vorinitialisierung</span>
-  </p>
-  <a class="github-link" href="https://github.com/reset42" target="_blank"
-     title="GitHub Profil ansehen (reset42)">
-    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-         alt="GitHub" width="32" height="32">
-  </a>
+  <p style="font-size:0.9rem; color:#555;">Systemstatus: <span style="color:#42f5b3;">Vorinitialisierung</span></p>
+
+  <div class="social">
+    <a href="https://x.com/reset_42_de" target="_blank">X (ehem. Twitter)</a> |
+    <a href="https://instagram.com/reset_42_de" target="_blank">Instagram</a>
+  </div>
+
+  <div class="footer">
+    Kontakt: <a href="mailto:info@reset42.de" style="color:#42f5b3;">info@reset42.de</a>
+  </div>
 </body>
 </html>
