@@ -4,11 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>reset42.de – Projekte & Debugging mit Stil</title>
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="reset42.png" />
-
-  <!-- SEO / OpenGraph -->
   <meta property="og:title" content="reset42 – Projekte & Debugging mit Stil" />
   <meta property="og:description" content="reset42 – Embedded & Linux Development" />
   <meta property="og:image" content="https://reset42.de/reset42.png" />
@@ -18,18 +14,6 @@
   <meta name="description" content="reset42 – Open Source Projekte, Automatisierung und Hardwareentwicklung mit Fokus auf MicroPython, Raspberry Pi und IoT." />
   <meta name="robots" content="index, follow" />
   <meta name="keywords" content="reset42, Embedded Systems, MicroPython, Raspberry Pi, IoT, Open Source" />
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://reset42.de",
-      "name": "reset42",
-      "description": "reset42 – Open Source Projekte, Automatisierung und Hardwareentwicklung mit Fokus auf MicroPython, Raspberry Pi und IoT."
-    }
-  </script>
-
   <style>
     body {
       background-color: #0f0f0f;
@@ -43,93 +27,54 @@
       flex-direction: column;
       text-align: center;
     }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    h1 { font-size: 2rem; margin-bottom: 1rem; }
+    .cursor::after { content: "|"; animation: blink 1s infinite; color: #42f5b3; margin-left: 4px; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    p { font-size: 1rem; color: #999; margin: 0.3rem 0; }
+    .icons { margin-top: 2rem; display: flex; gap: 1.5rem; }
+    .icons a svg { width: 32px; height: 32px; fill: #42f5b3; transition: transform 0.3s ease, fill 0.3s ease; }
+    .icons a:hover svg { transform: scale(1.15); fill: #ffffff; }
+    .contact { margin-top: 1.5rem; font-size: 0.9rem; color: #666; }
+    .contact a { color: #42f5b3; text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+    .projects { margin-top: 2rem; }
+    .projects ul { list-style: none; padding: 0; }
+    .projects li { margin: 0.5rem 0; }
+    .projects a { color: #42f5b3; text-decoration: none; }
+    .projects a:hover { color: #ffffff; text-decoration: underline; }
+    .language-toggle { position: absolute; top: 1rem; right: 1rem; }
+    .language-toggle button { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #42f5b3; }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      z-index: 1000;
     }
-
-    .cursor::after {
-      content: "|";
-      animation: blink 1s infinite;
+    .modal-content {
+      background: #1a1a1a;
+      border: 1px solid #42f5b3;
+      padding: 2rem;
+      max-width: 800px;
+      color: #ccc;
+      overflow-y: auto;
+      max-height: 90vh;
+      text-align: left;
+    }
+    .modal-content h2 {
       color: #42f5b3;
-      margin-left: 4px;
+      margin-top: 0;
     }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    p {
-      font-size: 1rem;
-      color: #999;
-      margin: 0.3rem 0;
-    }
-
-    .icons {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .icons a svg {
-      width: 32px;
-      height: 32px;
-      fill: #42f5b3;
-      transition: transform 0.3s ease, fill 0.3s ease;
-    }
-
-    .icons a:hover svg {
-      transform: scale(1.15);
-      fill: #ffffff;
-    }
-
-    .contact {
-      margin-top: 1.5rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    .contact a {
+    .close-modal {
       color: #42f5b3;
-      text-decoration: none;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
-    }
-
-    .projects {
-      margin-top: 2rem;
-    }
-    .projects ul {
-      list-style: none;
-      padding: 0;
-    }
-    .projects li {
-      margin: 0.5rem 0;
-    }
-    .projects a {
-      color: #42f5b3;
-      text-decoration: none;
-    }
-    .projects a:hover {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    .language-toggle {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-    }
-    .language-toggle button {
-      background: none;
-      border: none;
-      font-size: 1.2rem;
+      float: right;
+      font-size: 1.5rem;
       cursor: pointer;
-      color: #42f5b3;
     }
   </style>
 </head>
@@ -157,14 +102,30 @@
     </ul>
   </div>
 
+  <button onclick="document.getElementById('visionModal').style.display='flex'">Vision anzeigen</button>
+
+  <div id="visionModal" class="modal" onclick="this.style.display='none'">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close-modal" onclick="document.getElementById('visionModal').style.display='none'">&times;</span>
+      <h2>reset42 – Vision & Ausblick</h2>
+      <p><strong>reset42</strong> ist ein technisches Entwicklungsprojekt mit dem Ziel, in naher Zukunft modulare, lokal steuerbare Lösungen in folgenden Bereichen anzubieten:</p>
+      <ul>
+        <li>🏠 Heimautomatisierung: Licht, Sensorik, Energieüberwachung</li>
+        <li>🌱 Gewächshaussteuerung: Klima, Licht, Bodenfeuchte, Aktoren</li>
+        <li>🔌 Embedded-Entwicklung & Systemintegration: ESP32, RPi, Go, C</li>
+        <li>🌐 Schnittstellen: MQTT, REST, WebSocket, BLE, RS485, JSON</li>
+        <li>🛠 Plattformunabhängigkeit: lokale Systeme, Open-Source-freundlich</li>
+      </ul>
+      <p><em>Hinweis: reset42 ist aktuell kein Unternehmen und bietet keine Leistungen an. Es handelt sich um ein technisches Frühphasenprojekt mit Startup-Charakter.</em></p>
+    </div>
+  </div>
+
   <div class="icons">
-    <!-- X / Twitter -->
     <a href="https://x.com/reset_42_de" target="_blank" title="X / @reset_42_de">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" aria-hidden="true">
         <path d="M1100 0 700 495l500 730H930L600 765 270 1225H0l420-500L0 0h270l330 460L930 0z"/>
       </svg>
     </a>
-    <!-- Instagram -->
     <a href="https://instagram.com/reset_42_de" target="_blank" title="Instagram / @reset_42_de">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
         <path d="M224 141c-46 0-83 37-83 83s37 83 83 83 83-37 83-83-37-83-83-83zm0 136c-29 0-53-24-53-53s24-53 53-53 53 24 53 53-24 53-53 53zm124-136c0 10-8 18-18 18s-18-8-18-18 8-18 18-18 18 8 18 18zM398 80c0-26-22-48-48-48H98C72 32 50 54 50 80v352c0 26 22 48 48 48h252c26 0 48-22 48-48V80zm-48 0v64h-64c-17.7 0-32 14.3-32 32v64h-64c-17.7 0-32 14.3-32 32v64h64v64h-64v64h64v64h64v-64h64v-64h-64v-64h64v-64c0-17.7 14.3-32 32-32h64V80h-64z"/>
@@ -177,7 +138,8 @@
   </div>
 
   <p style="font-size: 0.8rem; color: #555; margin-top: 2rem;">
-    Private Website ohne kommerziellen Zweck. Keine Cookies. Kein Tracking. Kein Impressumspflicht.
+    reset42 ist ein technisches Frühphasenprojekt mit Startup-Charakter, aktuell noch ohne kommerzielle Angebote.<br>
+    Keine Cookies. Kein Tracking. Keine Impressumspflicht.
   </p>
 
   <script>
