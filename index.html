@@ -99,14 +99,63 @@
     .contact a:hover {
       text-decoration: underline;
     }
+
+    .projects {
+      margin-top: 2rem;
+    }
+    .projects ul {
+      list-style: none;
+      padding: 0;
+    }
+    .projects li {
+      margin: 0.5rem 0;
+    }
+    .projects a {
+      color: #42f5b3;
+      text-decoration: none;
+    }
+    .projects a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .language-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    .language-toggle button {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #42f5b3;
+    }
   </style>
 </head>
-
 <body>
+  <div class="language-toggle">
+    <button onclick="setLanguage('de')">🇩🇪</button>
+    <button onclick="setLanguage('en')">🇬🇧</button>
+  </div>
+
   <img src="reset42.png" alt="logo" width="200" height="200">
   <h1>&gt; reset(42)<span class="cursor"></span></h1>
-  <p>Hier entsteht eine neue Präsenz. Bitte warten…</p>
-  <p style="font-size:0.9rem; color:#555;">Systemstatus: <span style="color:#42f5b3;">Vorinitialisierung</span></p>
+
+  <p id="intro-de">Ihr Partner für Linux, Embedded Systems, Automatisierung und maßgeschneiderte Softwarelösungen.</p>
+  <p id="intro-en" style="display:none;">Your partner for Linux, embedded systems, automation, and custom software solutions.</p>
+
+  <div class="projects">
+    <h2 id="projects-de">Projektbeispiel</h2>
+    <h2 id="projects-en" style="display:none;">Project Example</h2>
+    <ul>
+      <li>
+        <a href="https://github.com/reset42/r42_Gardensensor_MicroPython" target="_blank">
+          🌱 r42_Gardensensor (MicroPython)
+        </a>
+      </li>
+    </ul>
+  </div>
 
   <div class="icons">
     <!-- X / Twitter -->
@@ -115,7 +164,6 @@
         <path d="M1100 0 700 495l500 730H930L600 765 270 1225H0l420-500L0 0h270l330 460L930 0z"/>
       </svg>
     </a>
-
     <!-- Instagram -->
     <a href="https://instagram.com/reset_42_de" target="_blank" title="Instagram / @reset_42_de">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
@@ -127,5 +175,18 @@
   <div class="contact">
     Kontakt: <a href="mailto:info@reset42.de">info@reset42.de</a>
   </div>
+
+  <p style="font-size: 0.8rem; color: #555; margin-top: 2rem;">
+    Private Website ohne kommerziellen Zweck. Keine Cookies. Kein Tracking. Kein Impressumspflicht.
+  </p>
+
+  <script>
+    function setLanguage(lang) {
+      document.querySelectorAll('[id^="intro-"]').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('[id^="projects-"]').forEach(el => el.style.display = 'none');
+      document.getElementById(`intro-${lang}`).style.display = 'block';
+      document.getElementById(`projects-${lang}`).style.display = 'block';
+    }
+  </script>
 </body>
 </html>
