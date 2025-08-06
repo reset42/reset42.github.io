@@ -29,26 +29,10 @@
   <p id="intro-en" style="display:none;">Your partner for Linux, embedded systems, automation, and custom software solutions.</p>
 
   <div class="projects">
-    <h2 id="projects-de">Showcase</h2>
-    <h2 id="projects-en" style="display:none;">Showcase</h2>
+    <h2 id="projects-de">Projekte</h2>
+    <h2 id="projects-en" style="display:none;">Projects</h2>
 
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>🌱 r42_Gardensensor</h3>
-        <p>MicroPython-Sensor mit MQTT & Logging. Optimiert für Raspberry Pi Pico W.</p>
-        <a href="https://github.com/reset42/r42_Gardensensor_MicroPython" target="_blank">🔗 GitHub</a>
-      </div>
-      <div class="project-card">
-        <h3>📊 Go Serialreader</h3>
-        <p>Minimalistischer CLI-Logger für Sensordaten über MQTT – modular & portabel.</p>
-        <a href="https://github.com/reset42/r42_MQTT_LOGGER_GO" target="_blank">🔗 GitHub</a>
-      </div>
-      <div class="project-card">
-        <h3>📊 Go MQTT Logger</h3>
-        <p>Minimalistischer CLI-Logger für Sensordaten über MQTT – modular & portabel.</p>
-        <a href="https://github.com/reset42/r42_MQTT_LOGGER_GO" target="_blank">🔗 GitHub</a>
-      </div>
-    </div>
+    <div class="project-grid" id="project-grid"></div>
   </div>
 
   <button onclick="document.getElementById('visionModal').style.display='flex'">Vision anzeigen</button>
@@ -108,16 +92,38 @@
   </p>
 
   <script>
+    async function loadCards(lang) {
+      const container = document.getElementById('project-grid');
+      container.innerHTML = '';
+      const res = await fetch('html/cards/');
+      const html = await res.text();
+      const files = Array.from(html.matchAll(/href="(card_[a-zA-Z0-9_\-]+(_de)?\.html)"/g)).map(m => m[1]);
+
+      const suffix = lang === 'de' ? '_de.html' : '.html';
+      const langFiles = files.filter(f => f.endsWith(suffix));
+
+      for (const file of langFiles) {
+        const response = await fetch(`html/cards/${file}`);
+        const content = await response.text();
+        const div = document.createElement('div');
+        div.classList.add('project-card');
+        div.innerHTML = content;
+        container.appendChild(div);
+      }
+    }
+
     function setLanguage(lang) {
       document.querySelectorAll('[id^="intro-"]').forEach(el => el.style.display = 'none');
       document.querySelectorAll('[id^="projects-"]').forEach(el => el.style.display = 'none');
       document.getElementById(`intro-${lang}`).style.display = 'block';
       document.getElementById(`projects-${lang}`).style.display = 'block';
-
       document.getElementById('vision-de').style.display = lang === 'de' ? 'block' : 'none';
       document.getElementById('vision-en').style.display = lang === 'en' ? 'block' : 'none';
+      loadCards(lang);
     }
+
+    // initial load
+    setLanguage('de');
   </script>
 </body>
 </html>
-
