@@ -133,7 +133,7 @@
 
     function setLanguage(lang) {
       document.getElementById('vision-de').style.display = lang === 'de' ? 'block' : 'none';
-      document.getElementById('vision-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('vision-en') && (document.getElementById('vision-en').style.display = lang === 'en' ? 'block' : 'none');
       loadCards(lang);
     }
 
