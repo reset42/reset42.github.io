@@ -287,3 +287,24 @@ img {
     width: 90px;
   }
 }
+
+/* BLINKENDER CURSOR */
+.cursor::after {
+  content: "|";
+  animation: blink 1s infinite;
+  color: #42f5b3;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* H1 RESET(42) DEUTLICH GRÖSSER */
+h1 {
+  font-size: 3.3rem;
+  letter-spacing: 0.04em;
+  font-family: monospace;
+  margin-bottom: 1rem;
+}
