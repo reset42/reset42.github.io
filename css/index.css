@@ -65,10 +65,35 @@ p {
   box-sizing: border-box;
 }
 
+/* Vision Button Hover */
 .vision_btn {
   background-color: #212830;
   color: #f0f6fc;
-  border: 2px solid #3d444d; 
+  border: 2px solid #3d444d;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.vision_btn:hover {
+  background-color: #2c343d;
+  color: #42f5b3;
+  transform: scale(1.05);
+}
+
+/* Schatteneffekt fürs Modal */
+.modal-content {
+  background: #1a1a1a;
+  border: 1px solid #42f5b3;
+  padding: 2rem;
+  max-width: 800px;
+  color: #ccc;
+  overflow-y: auto;
+  max-height: 90vh;
+  text-align: left;
+  box-shadow: 0 0 20px rgba(66, 245, 179, 0.2); /* NEU */
 }
 
 
