@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>reset42.de – Projekte & Debugging mit Stil</title>
+  <title>reset42.de – OpenSource Showcase & Debugging mit Stil</title>
   <link rel="icon" type="image/svg+xml" href="img/reset42.svg" />
   <link rel="stylesheet" href="css/index.css" />
-  <meta property="og:title" content="reset42 – Projekte & Debugging mit Stil" />
+  <meta property="og:title" content="reset42 – Open Source Showcase & Debugging mit Stil" />
   <meta property="og:description" content="reset42 – Embedded & Linux Development" />
   <meta property="og:image" content="https://reset42.de/img/reset42.svg" />
   <meta property="og:url" content="https://reset42.de" />
@@ -29,13 +29,13 @@
 </head>
 <body>
   <!-- Burger-Menü -->
-  <div class="burger-menu">
+  <div class="burger-menu" aria-label="Seiten-Navigation">
     <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon">☰</label>
-    <nav class="menu">
+    <label for="menu-toggle" class="menu-icon" aria-label="Menü öffnen">☰</label>
+    <nav class="menu" aria-label="Navigation">
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#projekte">Projekte</a></li>
+        <li><a href="#projekte">OpenSource Showcase</a></li>
         <li><a href="#vision">Vision</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
@@ -48,7 +48,7 @@
   </div>
 
   <section id="home">
-    <img src="img/reset42.svg" alt="logo" width="200" height="200">
+    <img src="img/reset42.svg" alt="reset42 Logo" width="200" height="200">
     <h1>&gt; reset(42)<span class="cursor"></span></h1>
 
     <p id="intro-de">Ihr Partner für Linux, Embedded Systems, Automatisierung und maßgeschneiderte Softwarelösungen.</p>
