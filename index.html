@@ -132,10 +132,6 @@
     }
 
     function setLanguage(lang) {
-      document.querySelectorAll('[id^="intro-"]').forEach(el => el.style.display = 'none');
-      document.querySelectorAll('[id^="projects-"]').forEach(el => el.style.display = 'none');
-      document.getElementById(`intro-${lang}`).style.display = 'block';
-      document.getElementById(`projects-${lang}`).style.display = 'block';
       document.getElementById('vision-de').style.display = lang === 'de' ? 'block' : 'none';
       document.getElementById('vision-en').style.display = lang === 'en' ? 'block' : 'none';
       loadCards(lang);
