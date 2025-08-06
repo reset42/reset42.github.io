@@ -17,41 +17,44 @@ img {
   margin-top: 2rem;
 }
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+/* Logo responsive */
+.logo {
+  width: 160px;
+  max-width: 30vw;
+  margin-top: 2.5rem;
 }
 
-.cursor::after {
-  content: "|";
-  animation: blink 1s infinite;
-  color: #42f5b3;
-  margin-left: 4px;
+/* Claim (zweite Zeile, kompakt & leserlich) */
+.claim {
+  color: #bbb;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-top: 1.2rem;
+  margin-bottom: 2.2rem;
+  line-height: 1.35;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-p {
-  font-size: 1rem;
-  color: #999;
-  margin: 0.3rem 0;
-}
-
-.language-toggle {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-
-.language-toggle button {
-  background: none;
+/* Showcase Divider */
+.showcase-divider {
+  width: 320px;
+  max-width: 80vw;
+  margin: 2.4rem auto 1.2rem auto;
   border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #42f5b3;
+  border-top: 2px solid #222;
+  box-shadow: 0 1px 0 #42f5b322, 0 2px 0 #0d111755;
+}
+
+/* OpenSource Showcase Titel */
+.showcase-title {
+  font-family: monospace;
+  color: #fff;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  margin-top: 0.8rem;
+  font-weight: 700;
+  text-shadow: 0 0 6px #42f5b380;
 }
 
 /* Burger-Menü */
@@ -100,6 +103,20 @@ p {
   color: #fff;
 }
 
+.language-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.language-toggle button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #42f5b3;
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -111,19 +128,29 @@ p {
   box-sizing: border-box;
 }
 
+/* Auffälliger Vision-Button */
 .vision_btn {
-  background-color: #212830;
-  color: #f0f6fc;
-  border: 2px solid #3d444d;
-  padding: 0.5rem 1rem;
+  background: linear-gradient(90deg, #21e6b6 0%, #42f5b3 100%);
+  color: #0d1117;
+  border: none;
+  border-radius: 25px;
+  padding: 0.85em 2em;
+  font-size: 1.1rem;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
+  box-shadow: 0 2px 12px #42f5b355;
+  letter-spacing: 0.04em;
   cursor: pointer;
-  margin-top: 1rem;
-  transition: background-color 0.3s, border-color 0.3s;
+  margin: 2.5rem 0 2rem 0;
+  outline: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s, color 0.2s;
 }
 
-.vision_btn:hover {
-  background-color: #2a333e;
-  border-color: #42f5b3;
+.vision_btn:hover, .vision_btn:focus {
+  background: linear-gradient(90deg, #42f5b3 10%, #21e6b6 90%);
+  color: #222;
+  transform: scale(1.06);
+  box-shadow: 0 4px 22px #42f5b388;
 }
 
 .project-card {
@@ -233,11 +260,30 @@ p {
   cursor: pointer;
 }
 
+/* Optional: Vision-List Style */
+.vision-list {
+  padding-left: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  list-style: disc inside;
+}
+
+.vision-list li {
+  text-indent: -1rem;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
 @media (max-width: 600px) {
   body {
     padding: 1rem;
   }
   .project-grid {
     grid-template-columns: 1fr;
+  }
+  .logo {
+    width: 90px;
   }
 }
