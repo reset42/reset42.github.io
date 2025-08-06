@@ -28,78 +28,92 @@
   </style>
 </head>
 <body>
-  <nav class="burger-menu">
+  <!-- Burger-Menü -->
+  <div class="burger-menu">
     <input type="checkbox" id="menu-toggle" />
     <label for="menu-toggle" class="menu-icon">☰</label>
-    <ul class="menu">
-      <li><a href="#">Home</a></li>
-    </ul>
-  </nav>
+    <nav class="menu">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projekte">Projekte</a></li>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
 
   <div class="language-toggle">
     <button onclick="setLanguage('de')">🇩🇪</button>
     <button onclick="setLanguage('en')">🇬🇧</button>
   </div>
 
-  <img src="img/reset42.svg" alt="logo" width="200" height="200">
-  <h1>&gt; reset(42)<span class="cursor"></span></h1>
+  <section id="home">
+    <img src="img/reset42.svg" alt="logo" width="200" height="200">
+    <h1>&gt; reset(42)<span class="cursor"></span></h1>
 
-  <p id="intro-de">Ihr Partner für Linux, Embedded Systems, Automatisierung und maßgeschneiderte Softwarelösungen.</p>
-  <p id="intro-en" style="display:none;">Your partner for Linux, embedded systems, automation, and custom software solutions.</p>
+    <p id="intro-de">Ihr Partner für Linux, Embedded Systems, Automatisierung und maßgeschneiderte Softwarelösungen.</p>
+    <p id="intro-en" style="display:none;">Your partner for Linux, embedded systems, automation, and custom software solutions.</p>
+  </section>
 
-  <div class="projects">
-    <h2 id="projects-de">Projekte</h2>
-    <h2 id="projects-en" style="display:none;">Projects</h2>
+  <section id="projekte">
+    <div class="projects">
+      <h2 id="projects-de">Projekte</h2>
+      <h2 id="projects-en" style="display:none;">Projects</h2>
 
-    <div class="project-grid" id="project-grid"></div>
-  </div>
+      <div class="project-grid" id="project-grid"></div>
+    </div>
+  </section>
 
-  <button class="vision_btn" onclick="showVision()">Vision anzeigen</button>
+  <section id="vision">
+    <button class="vision_btn" onclick="showVision()">Vision anzeigen</button>
 
-  <div id="visionModal" class="modal" onclick="hideVision()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <span class="close-modal" onclick="hideVision()">&times;</span>
+    <div id="visionModal" class="modal" onclick="hideVision()">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-modal" onclick="hideVision()">&times;</span>
 
-      <div id="vision-de">
-        <h2>reset42 – Vision & Ausblick</h2>
-        <p><strong>reset42</strong> ist ein technisches Entwicklungsprojekt mit dem Ziel, in naher Zukunft modulare, lokal steuerbare Lösungen in folgenden Bereichen anzubieten:</p>
-        <ul class="vision-list">
-          <li>🏠 Heimautomatisierung: Licht, Sensoren, Aktoren, Energieüberwachung, Systemintegration & Schnittstellen zu bestehenden Systemen</li>
-          <li>🌱 Gewächshaussteuerung: Klima, Licht, Bodenfeuchte, Aktoren uvm.</li>
-          <li>🔌 Embedded-Entwicklung & Systemintegration: Mikroprozessorsteuerung, Go, TinyGo, C, Python, Micropython, Webfrontends</li>
-          <li>🌐 Schnittstellen: MQTT, REST, WebSocket, Bluetooth, BLE, RS485, JSON</li>
-          <li>🚰 Plattformunabhängigkeit: lokale Systeme, Open-Source-freundlich</li>
-        </ul>
-        <p><em>Hinweis: reset42 ist aktuell (noch) kein Unternehmen und bietet keine Leistungen an. Es handelt sich um ein technisches Frühphasenprojekt mit Startup-Charakter.</em></p>
-      </div>
+        <div id="vision-de">
+          <h2>reset42 – Vision & Ausblick</h2>
+          <p><strong>reset42</strong> ist ein technisches Entwicklungsprojekt mit dem Ziel, in naher Zukunft modulare, lokal steuerbare Lösungen in folgenden Bereichen anzubieten:</p>
+          <ul class="vision-list">
+            <li>🏠 Heimautomatisierung: Licht, Sensoren, Aktoren, Energieüberwachung, Systemintegration & Schnittstellen zu bestehenden Systemen</li>
+            <li>🌱 Gewächshaussteuerung: Klima, Licht, Bodenfeuchte, Aktoren uvm.</li>
+            <li>🔌 Embedded-Entwicklung & Systemintegration: Mikroprozessorsteuerung, Go, TinyGo, C, Python, Micropython, Webfrontends</li>
+            <li>🌐 Schnittstellen: MQTT, REST, WebSocket, Bluetooth, BLE, RS485, JSON</li>
+            <li>🚰 Plattformunabhängigkeit: lokale Systeme, Open-Source-freundlich</li>
+          </ul>
+          <p><em>Hinweis: reset42 ist aktuell (noch) kein Unternehmen und bietet keine Leistungen an. Es handelt sich um ein technisches Frühphasenprojekt mit Startup-Charakter.</em></p>
+        </div>
 
-      <div id="vision-en" style="display:none">
-        <h2>reset42 – Vision & Outlook</h2>
-        <p><strong>reset42</strong> is a technical project with the goal of offering modular, local-first solutions in the following domains:</p>
-        <ul class="vision-list">
-          <li>🏠 Home Automation: Lighting, sensors, actuators, energy monitoring, system integration & interfaces to existing systems</li>
-          <li>🌱 Greenhouse Control: Climate, lighting, soil moisture, actuators, and more</li>
-          <li>🔌 Embedded Development & System Integration: Microcontroller programming, Go, TinyGo, C, Python, Micropython, web frontends</li>
-          <li>🌐 Interfaces: MQTT, REST, WebSocket, Bluetooth, BLE, RS485, JSON</li>
-          <li>🚰 Platform Independence: Local systems, open-source friendly</li>
-        </ul>
-        <p><em>Note: reset42 is not (yet) a registered business and does not offer services at this time. This is an early-phase technical project with startup character.</em></p>
+        <div id="vision-en" style="display:none">
+          <h2>reset42 – Vision & Outlook</h2>
+          <p><strong>reset42</strong> is a technical project with the goal of offering modular, local-first solutions in the following domains:</p>
+          <ul class="vision-list">
+            <li>🏠 Home Automation: Lighting, sensors, actuators, energy monitoring, system integration & interfaces to existing systems</li>
+            <li>🌱 Greenhouse Control: Climate, lighting, soil moisture, actuators, and more</li>
+            <li>🔌 Embedded Development & System Integration: Microcontroller programming, Go, TinyGo, C, Python, Micropython, web frontends</li>
+            <li>🌐 Interfaces: MQTT, REST, WebSocket, Bluetooth, BLE, RS485, JSON</li>
+            <li>🚰 Platform Independence: Local systems, open-source friendly</li>
+          </ul>
+          <p><em>Note: reset42 is not (yet) a registered business and does not offer services at this time. This is an early-phase technical project with startup character.</em></p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="icons">
-    <a href="https://x.com/reset_42_de" target="_blank" title="X / @reset_42_de">
-      <img src="img/x_logo.svg" alt="X Logo" width="32" height="32" />
-    </a>
-    <a href="https://instagram.com/reset_42_de" target="_blank" title="Instagram / @reset_42_de">
-      <img src="img/insta_logo.svg" alt="Instagram Logo" width="32" height="32" />
-    </a>
-  </div>
+  <section id="kontakt">
+    <div class="icons">
+      <a href="https://x.com/reset_42_de" target="_blank" title="X / @reset_42_de">
+        <img src="img/x_logo.svg" alt="X Logo" width="32" height="32" />
+      </a>
+      <a href="https://instagram.com/reset_42_de" target="_blank" title="Instagram / @reset_42_de">
+        <img src="img/insta_logo.svg" alt="Instagram Logo" width="32" height="32" />
+      </a>
+    </div>
 
-  <div class="contact">
-    Kontakt: <a href="mailto:info@reset42.de">info@reset42.de</a>
-  </div>
+    <div class="contact">
+      Kontakt: <a href="mailto:info@reset42.de">info@reset42.de</a>
+    </div>
+  </section>
 
   <p style="font-size: 0.8rem; color: #555; margin-top: 2rem;">
     reset42 ist ein technisches Frühphasenprojekt mit Startup-Charakter, aktuell noch ohne kommerzielle Angebote.<br>
