@@ -62,7 +62,7 @@
   </section>
 
   <div class="showcase-vision-btn-wrapper">
-    <button class="vision_btn" onclick="showVision()">🚀 Vision & Ausblick</button>
+    <button class="vision_btn" id="vision-btn" onclick="showVision()">🚀 Vision & Ausblick</button>
   </div>
 
   <section id="vision">
@@ -79,6 +79,17 @@
             <li>🚰 Plattformunabhängigkeit: lokale Systeme, Open-Source-freundlich</li>
           </ul>
           <p><em>Hinweis: reset42 ist aktuell (noch) kein Unternehmen und bietet keine Leistungen an. Es handelt sich um ein technisches Frühphasenprojekt mit Startup-Charakter.</em></p>
+        </div>
+        <div id="vision-en" style="display:none">
+          <h2>reset42 – Vision & Outlook</h2>
+          <ul class="vision-list">
+            <li>🏠 Home automation: lighting, sensors, actuators, energy monitoring, system integration & interfaces to existing systems</li>
+            <li>🌱 Greenhouse control: climate, lighting, soil moisture, actuators, and more</li>
+            <li>🔌 Embedded development & system integration: microcontroller programming, Go, TinyGo, C, Python, Micropython, web frontends</li>
+            <li>🌐 Interfaces: MQTT, REST, WebSocket, Bluetooth, BLE, RS485, JSON</li>
+            <li>🚰 Platform independence: local systems, open-source friendly</li>
+          </ul>
+          <p><em>Note: reset42 is not (yet) a company and does not offer any services. This is an early-stage technical project with a startup character.</em></p>
         </div>
       </div>
     </div>
@@ -133,7 +144,9 @@
 
     function setLanguage(lang) {
       document.getElementById('vision-de').style.display = lang === 'de' ? 'block' : 'none';
-      document.getElementById('vision-en') && (document.getElementById('vision-en').style.display = lang === 'en' ? 'block' : 'none');
+      document.getElementById('vision-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('vision-btn').textContent =
+        lang === 'de' ? '🚀 Vision & Ausblick' : '🚀 Vision & Outlook';
       loadCards(lang);
     }
 
