@@ -112,9 +112,9 @@ p {
   transition: transform 0.3s ease, fill 0.3s ease;
 }
 
-.icons a:hover svg {
-  transform: scale(1.15);
-  fill: #ffffff;
+.icons img {
+  margin: 0 0.5rem;
+  vertical-align: middle;
 }
 
 .contact {
