@@ -50,7 +50,8 @@
   <section id="home">
     <img src="img/reset42.svg" alt="reset42 Logo" class="logo">
     <h1>&gt; reset(42)<span class="cursor"></span></h1>
-    <div class="claim">Embedded. Linux. Automation. Maßgeschneidert.</div>
+    <div class="claim" id="claim-de">Embedded. Linux. Automation. Maßgeschneidert.</div>
+    <div class="claim" id="claim-en" style="display:none;">Embedded. Linux. Automation. Tailored.</div>
     <hr class="showcase-divider" />
     <h2 class="showcase-title">Open Source Showcase</h2>
   </section>
@@ -150,6 +151,8 @@
       document.getElementById('vision-en').style.display = lang === 'en' ? 'block' : 'none';
       document.getElementById('vision-btn').textContent =
         lang === 'de' ? '🚀 Vision & Ausblick' : '🚀 Vision & Outlook';
+      document.getElementById('claim-de').style.display = lang === 'de' ? 'block' : 'none';
+      document.getElementById('claim-en').style.display = lang === 'en' ? 'block' : 'none';
       loadCards(lang);
     }
 
