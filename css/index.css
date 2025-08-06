@@ -1,1 +1,178 @@
+/* index.css – Reset42 Layout */
 
+body {
+  background-color: #0f0f0f;
+  color: #42f5b3;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  text-align: center;
+}
+
+img {
+  margin-top: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cursor::after {
+  content: "|";
+  animation: blink 1s infinite;
+  color: #42f5b3;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+p {
+  font-size: 1rem;
+  color: #999;
+  margin: 0.3rem 0;
+}
+
+.language-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.language-toggle button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #42f5b3;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+
+.project-card {
+  background: #1a1a1a;
+  border: 1px solid #42f5b3;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: left;
+  transition: transform 0.2s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  border-color: #ffffff;
+}
+
+.project-card h3 {
+  margin-top: 0;
+  color: #42f5b3;
+}
+
+.project-card p {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.project-card a {
+  color: #42f5b3;
+  text-decoration: none;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.icons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.icons a svg {
+  width: 32px;
+  height: 32px;
+  fill: #42f5b3;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.icons a:hover svg {
+  transform: scale(1.15);
+  fill: #ffffff;
+}
+
+.contact {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.contact a {
+  color: #42f5b3;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  border: 1px solid #42f5b3;
+  padding: 2rem;
+  max-width: 800px;
+  color: #ccc;
+  overflow-y: auto;
+  max-height: 90vh;
+  text-align: left;
+}
+
+.modal-content h2 {
+  color: #42f5b3;
+  margin-top: 0;
+}
+
+.close-modal {
+  color: #42f5b3;
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
