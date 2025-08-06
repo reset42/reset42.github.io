@@ -11,7 +11,6 @@ body {
   padding: 0;
   min-height: 100vh;
   text-align: center;
-  scroll-behavior: smooth;
 }
 
 img {
@@ -55,17 +54,18 @@ p {
   color: #42f5b3;
 }
 
+/* Burger-Menü */
 .burger-menu {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  z-index: 1001;
 }
 
 .menu-icon {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
   color: #42f5b3;
+  user-select: none;
 }
 
 #menu-toggle {
@@ -74,34 +74,30 @@ p {
 
 .menu {
   display: none;
-  background-color: #1a1a1a;
+  flex-direction: column;
+  background-color: #0d1117;
   border: 1px solid #42f5b3;
   padding: 0.5rem 1rem;
-  border-radius: 4px;
   position: absolute;
-  top: 2.5rem;
-  left: 0;
-  z-index: 1001;
+  top: 3rem;
+  left: 1rem;
+  z-index: 1000;
+  border-radius: 5px;
 }
 
-.menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu li {
-  margin: 0.5rem 0;
+#menu-toggle:checked + .menu-icon + .menu {
+  display: flex;
 }
 
 .menu a {
   text-decoration: none;
   color: #42f5b3;
+  padding: 0.3rem 0;
   font-size: 1rem;
 }
 
-#menu-toggle:checked + .menu-icon + .menu {
-  display: block;
+.menu a:hover {
+  color: #fff;
 }
 
 .project-grid {
@@ -118,18 +114,16 @@ p {
 .vision_btn {
   background-color: #212830;
   color: #f0f6fc;
-  border: 2px solid #3d444d; 
+  border: 2px solid #3d444d;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  margin-top: 1rem;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 .vision_btn:hover {
-  background-color: #2b333c;
+  background-color: #2a333e;
   border-color: #42f5b3;
-  color: #42f5b3;
 }
 
 .project-card {
@@ -139,13 +133,13 @@ p {
   border-radius: 8px;
   text-align: left;
   transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px rgba(66, 245, 179, 0.2);
 }
 
 .project-card:hover {
   transform: scale(1.02);
   border-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
 }
 
 .project-card h3 {
@@ -174,16 +168,11 @@ p {
   gap: 1.5rem;
 }
 
-.icons a svg {
-  width: 32px;
-  height: 32px;
-  fill: #42f5b3;
-  transition: transform 0.3s ease, fill 0.3s ease;
-}
-
 .icons img {
   margin: 0 0.5rem;
   vertical-align: middle;
+  width: 32px;
+  height: 32px;
 }
 
 .contact {
@@ -214,6 +203,12 @@ p {
   z-index: 1000;
 }
 
+.modal.show {
+  display: flex !important;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
 .modal-content {
   background: #1a1a1a;
   border: 1px solid #42f5b3;
@@ -223,7 +218,7 @@ p {
   overflow-y: auto;
   max-height: 90vh;
   text-align: left;
-  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  border-radius: 10px;
 }
 
 .modal-content h2 {
