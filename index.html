@@ -95,20 +95,27 @@
     async function loadCards(lang) {
       const container = document.getElementById('project-grid');
       container.innerHTML = '';
-      const res = await fetch('html/cards/');
-      const html = await res.text();
-      const files = Array.from(html.matchAll(/href="(card_[a-zA-Z0-9_\-]+(_de)?\.html)"/g)).map(m => m[1]);
+
+      const baseFiles = [
+        "card_gardensensor",
+        "card_serialreader",
+        "card_mqtt_logger"
+      ];
 
       const suffix = lang === 'de' ? '_de.html' : '.html';
-      const langFiles = files.filter(f => f.endsWith(suffix));
 
-      for (const file of langFiles) {
-        const response = await fetch(`html/cards/${file}`);
-        const content = await response.text();
-        const div = document.createElement('div');
-        div.classList.add('project-card');
-        div.innerHTML = content;
-        container.appendChild(div);
+      for (const base of baseFiles) {
+        const file = `html/cards/${base}${suffix}`;
+        try {
+          const response = await fetch(file);
+          const content = await response.text();
+          const div = document.createElement('div');
+          div.classList.add('project-card');
+          div.innerHTML = content;
+          container.appendChild(div);
+        } catch (e) {
+          console.warn(`Card not found: ${file}`);
+        }
       }
     }
 
