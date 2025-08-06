@@ -5,78 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>reset42.de – Projekte & Debugging mit Stil</title>
   <link rel="icon" type="image/png" href="reset42.png" />
+  <link rel="icon" href="reset42.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/index.css" />
   <meta property="og:title" content="reset42 – Projekte & Debugging mit Stil" />
   <meta property="og:description" content="reset42 – Embedded & Linux Development" />
-  <meta property="og:image" content="https://reset42.de/reset42.png" />
+  <meta property="og:image" content="https://reset42.de/reset42.svg" />
   <meta property="og:url" content="https://reset42.de" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="author" content="Andi" />
   <meta name="description" content="reset42 – Open Source Projekte, Automatisierung und Hardwareentwicklung mit Fokus auf MicroPython, Raspberry Pi und IoT." />
   <meta name="robots" content="index, follow" />
   <meta name="keywords" content="reset42, Embedded Systems, MicroPython, Raspberry Pi, IoT, Open Source" />
-  <style>
-    body {
-      background-color: #0f0f0f;
-      color: #42f5b3;
-      font-family: monospace;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      flex-direction: column;
-      text-align: center;
-    }
-    h1 { font-size: 2rem; margin-bottom: 1rem; }
-    .cursor::after { content: "|"; animation: blink 1s infinite; color: #42f5b3; margin-left: 4px; }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-    p { font-size: 1rem; color: #999; margin: 0.3rem 0; }
-    .icons { margin-top: 2rem; display: flex; gap: 1.5rem; }
-    .icons a svg { width: 32px; height: 32px; fill: #42f5b3; transition: transform 0.3s ease, fill 0.3s ease; }
-    .icons a:hover svg { transform: scale(1.15); fill: #ffffff; }
-    .contact { margin-top: 1.5rem; font-size: 0.9rem; color: #666; }
-    .contact a { color: #42f5b3; text-decoration: none; }
-    .contact a:hover { text-decoration: underline; }
-    .projects { margin-top: 2rem; }
-    .projects ul { list-style: none; padding: 0; }
-    .projects li { margin: 0.5rem 0; }
-    .projects a { color: #42f5b3; text-decoration: none; }
-    .projects a:hover { color: #ffffff; text-decoration: underline; }
-    .language-toggle { position: absolute; top: 1rem; right: 1rem; }
-    .language-toggle button { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #42f5b3; }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      box-sizing: border-box;
-      z-index: 1000;
-    }
-    .modal-content {
-      background: #1a1a1a;
-      border: 1px solid #42f5b3;
-      padding: 2rem;
-      max-width: 800px;
-      color: #ccc;
-      overflow-y: auto;
-      max-height: 90vh;
-      text-align: left;
-    }
-    .modal-content h2 {
-      color: #42f5b3;
-      margin-top: 0;
-    }
-    .close-modal {
-      color: #42f5b3;
-      float: right;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
   <div class="language-toggle">
@@ -84,22 +23,33 @@
     <button onclick="setLanguage('en')">🇬🇧</button>
   </div>
 
-  <img src="reset42.png" alt="logo" width="200" height="200">
+  <img src="reset42.svg" alt="logo" width="200" height="200">
   <h1>&gt; reset(42)<span class="cursor"></span></h1>
 
   <p id="intro-de">Ihr Partner für Linux, Embedded Systems, Automatisierung und maßgeschneiderte Softwarelösungen.</p>
   <p id="intro-en" style="display:none;">Your partner for Linux, embedded systems, automation, and custom software solutions.</p>
 
   <div class="projects">
-    <h2 id="projects-de">Projektbeispiel</h2>
-    <h2 id="projects-en" style="display:none;">Project Example</h2>
-    <ul>
-      <li>
-        <a href="https://github.com/reset42/r42_Gardensensor_MicroPython" target="_blank">
-          🌱 r42_Gardensensor (MicroPython)
-        </a>
-      </li>
-    </ul>
+    <h2 id="projects-de">Projekte</h2>
+    <h2 id="projects-en" style="display:none;">Projects</h2>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>🌱 r42_Gardensensor</h3>
+        <p>MicroPython-Sensor mit MQTT & Logging. Optimiert für Raspberry Pi Pico W.</p>
+        <a href="https://github.com/reset42/r42_Gardensensor_MicroPython" target="_blank">🔗 GitHub</a>
+      </div>
+      <div class="project-card">
+        <h3>🔌 Lush BLE Emulator</h3>
+        <p>ESP32-C3 Projekt zur Emulation von Lovense-Geräten via BLE inkl. Vibrationsausgabe & Displaysteuerung.</p>
+        <a href="https://github.com/reset42/r42_MQTT_LOGGER_GO" target="_blank">🔗 GitHub</a>
+      </div>
+      <div class="project-card">
+        <h3>📊 Go MQTT Logger</h3>
+        <p>Minimalistischer CLI-Logger für Sensordaten über MQTT – modular & portabel.</p>
+        <a href="https://github.com/reset42/r42_MQTT_LOGGER_GO" target="_blank">🔗 GitHub</a>
+      </div>
+    </div>
   </div>
 
   <button onclick="document.getElementById('visionModal').style.display='flex'">Vision anzeigen</button>
@@ -116,7 +66,7 @@
           <li>🌱 Gewächshaussteuerung: Klima, Licht, Bodenfeuchte, Aktoren</li>
           <li>🔌 Embedded-Entwicklung & Systemintegration: ESP32, RPi, Go, C</li>
           <li>🌐 Schnittstellen: MQTT, REST, WebSocket, BLE, RS485, JSON</li>
-          <li>🛠 Plattformunabhängigkeit: lokale Systeme, Open-Source-freundlich</li>
+          <li>🚰 Plattformunabhängigkeit: lokale Systeme, Open-Source-freundlich</li>
         </ul>
         <p><em>Hinweis: reset42 ist aktuell kein Unternehmen und bietet keine Leistungen an. Es handelt sich um ein technisches Frühphasenprojekt mit Startup-Charakter.</em></p>
       </div>
@@ -129,11 +79,10 @@
           <li>🌱 Greenhouse Control: Climate, lighting, soil moisture, actuators</li>
           <li>🔌 Embedded Development & System Integration: ESP32, RPi, Go, C</li>
           <li>🌐 Interfaces: MQTT, REST, WebSocket, BLE, RS485, JSON</li>
-          <li>🛠 Platform Independence: Local systems, open-source friendly</li>
+          <li>🚰 Platform Independence: Local systems, open-source friendly</li>
         </ul>
         <p><em>Note: reset42 is not a registered business and does not offer services at this time. This is an early-phase technical project with startup character.</em></p>
       </div>
-
     </div>
   </div>
 
