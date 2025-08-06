@@ -65,6 +65,13 @@ p {
   box-sizing: border-box;
 }
 
+.vision_btn {
+  background-color: #212830;
+  color: #f0f6fc;
+  border: 2px solid #3d444d; 
+}
+
+
 .project-card {
   background: #1a1a1a;
   border: 1px solid #42f5b3;
