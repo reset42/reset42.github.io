@@ -25,6 +25,27 @@
       display: flex !important;
       opacity: 1;
     }
+    .modal-content {
+      background: #1a1a1a;
+      border: 1px solid #42f5b3;
+      padding: 2rem;
+      max-width: 800px;
+      color: #ccc;
+      overflow-y: auto;
+      max-height: 90vh;
+      text-align: left;
+      animation: fadeInModal 0.3s ease;
+    }
+    @keyframes fadeInModal {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .close-modal {
+      color: #42f5b3;
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -114,26 +135,18 @@
   </section>
 
   <p style="font-size: 0.8rem; color: #555; margin-top: 2rem;">
+    <button onclick="loadModal('impressum')" style="background:none;border:none;color:#42f5b3;cursor:pointer;">Impressum</button> |
+    <button onclick="loadModal('datenschutz')" style="background:none;border:none;color:#42f5b3;cursor:pointer;">Datenschutz</button><br>
     reset42 ist ein technisches Frühphasenprojekt mit Startup-Charakter, aktuell noch ohne kommerzielle Angebote.<br>
-    Keine Cookies. Kein Tracking. Keine Impressumspflicht.
+    Keine Cookies. Kein Tracking.
   </p>
- <p style="font-size: 0.8rem; color: #555; margin-top: 2rem;">
-   <button onclick="loadModal('impressum')" style="background:none;border:none;color:#42f5b3;cursor:pointer;">Impressum</button> |
-   <button onclick="loadModal('datenschutz')" style="background:none;border:none;color:#42f5b3;cursor:pointer;">Datenschutz</button><br>
-   reset42 ist ein technisches Frühphasenprojekt mit Startup-Charakter, aktuell noch ohne kommerzielle Angebote.<br>
-   Keine Cookies. Kein Tracking. 
- </p>
+
   <script>
     async function loadCards(lang) {
       const container = document.getElementById('project-grid');
       container.innerHTML = '';
 
-      const baseFiles = [
-        "card_gardensensor",
-        "card_serialreader",
-        "card_mqtt_logger"
-      ];
-
+      const baseFiles = ["card_gardensensor", "card_serialreader", "card_mqtt_logger"];
       const suffix = lang === 'de' ? '_de.html' : '.html';
 
       for (const base of baseFiles) {
@@ -160,13 +173,14 @@
       document.getElementById('claim-en').style.display = lang === 'en' ? 'block' : 'none';
       loadCards(lang);
     }
+
     function loadModal(type) {
       const modal = document.getElementById('legalModal');
       const content = document.getElementById('legalContent');
       content.innerHTML = 'Lade Inhalt...';
-    
+
       const url = type === 'impressum' ? 'html/impressum.html' : 'html/datenschutz.html';
-    
+
       fetch(url)
         .then(res => {
           if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -195,14 +209,14 @@
       setTimeout(() => modal.style.display = 'none', 300);
     }
 
-    // initial load
     setLanguage('de');
   </script>
-<div id="legalModal" class="modal" onclick="this.style.display='none'">
-  <div class="modal-content" onclick="event.stopPropagation()">
-    <span class="close-modal" onclick="document.getElementById('legalModal').style.display='none'">&times;</span>
-    <div id="legalContent">Lade Inhalt...</div>
+
+  <div id="legalModal" class="modal" onclick="this.style.display='none'">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close-modal" onclick="document.getElementById('legalModal').style.display='none'">&times;</span>
+      <div id="legalContent">Lade Inhalt...</div>
+    </div>
   </div>
-</div>
 </body>
 </html>
