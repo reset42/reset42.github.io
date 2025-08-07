@@ -160,6 +160,28 @@
       document.getElementById('claim-en').style.display = lang === 'en' ? 'block' : 'none';
       loadCards(lang);
     }
+    function loadModal(type) {
+      const modal = document.getElementById('legalModal');
+      const content = document.getElementById('legalContent');
+      content.innerHTML = 'Lade Inhalt...';
+    
+      const url = type === 'impressum' ? 'html/impressum.html' : 'html/datanschutz.html';
+    
+      fetch(url)
+        .then(res => {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.text();
+        })
+        .then(html => {
+          content.innerHTML = html;
+          modal.style.display = 'flex';
+        })
+        .catch(err => {
+          content.innerHTML = '<p style="color: red;">Fehler beim Laden des Inhalts.</p>';
+          console.error(err);
+          modal.style.display = 'flex';
+        });
+    }
 
     function showVision() {
       const modal = document.getElementById('visionModal');
@@ -176,5 +198,11 @@
     // initial load
     setLanguage('de');
   </script>
+<div id="legalModal" class="modal" onclick="this.style.display='none'">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close-modal" onclick="document.getElementById('legalModal').style.display='none'">&times;</span>
+    <div id="legalContent">Lade Inhalt...</div>
+  </div>
+</div>
 </body>
 </html>
