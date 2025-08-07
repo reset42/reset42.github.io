@@ -20,6 +20,17 @@
       display: none;
       opacity: 0;
       transition: opacity 0.3s ease;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 2rem;
+      box-sizing: border-box;
     }
     .modal.show {
       display: flex !important;
@@ -145,10 +156,8 @@
     async function loadCards(lang) {
       const container = document.getElementById('project-grid');
       container.innerHTML = '';
-
       const baseFiles = ["card_gardensensor", "card_serialreader", "card_mqtt_logger"];
       const suffix = lang === 'de' ? '_de.html' : '.html';
-
       for (const base of baseFiles) {
         const file = `html/cards/${base}${suffix}`;
         try {
@@ -178,9 +187,7 @@
       const modal = document.getElementById('legalModal');
       const content = document.getElementById('legalContent');
       content.innerHTML = 'Lade Inhalt...';
-
       const url = type === 'impressum' ? 'html/impressum.html' : 'html/datenschutz.html';
-
       fetch(url)
         .then(res => {
           if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -189,12 +196,20 @@
         .then(html => {
           content.innerHTML = html;
           modal.style.display = 'flex';
+          requestAnimationFrame(() => modal.classList.add('show'));
         })
         .catch(err => {
           content.innerHTML = '<p style="color: red;">Fehler beim Laden des Inhalts.</p>';
-          console.error(err);
           modal.style.display = 'flex';
+          requestAnimationFrame(() => modal.classList.add('show'));
+          console.error(err);
         });
+    }
+
+    function hideLegal() {
+      const modal = document.getElementById('legalModal');
+      modal.classList.remove('show');
+      setTimeout(() => modal.style.display = 'none', 300);
     }
 
     function showVision() {
@@ -212,9 +227,9 @@
     setLanguage('de');
   </script>
 
-  <div id="legalModal" class="modal" onclick="this.style.display='none'">
+  <div id="legalModal" class="modal" onclick="hideLegal()">
     <div class="modal-content" onclick="event.stopPropagation()">
-      <span class="close-modal" onclick="document.getElementById('legalModal').style.display='none'">&times;</span>
+      <span class="close-modal" onclick="hideLegal()">&times;</span>
       <div id="legalContent">Lade Inhalt...</div>
     </div>
   </div>
