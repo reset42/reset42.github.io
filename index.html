@@ -15,49 +15,6 @@
   <meta name="description" content="reset42 – Open Source Projekte, Automatisierung und Hardwareentwicklung mit Fokus auf Modularität und IoT." />
   <meta name="robots" content="index, follow" />
   <meta name="keywords" content="reset42, Embedded Systems, MicroPython, Raspberry Pi, IoT, Open Source" />
-  <style>
-    .modal {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      padding: 2rem;
-      box-sizing: border-box;
-    }
-    .modal.show {
-      display: flex !important;
-      opacity: 1;
-    }
-    .modal-content {
-      background: #1a1a1a;
-      border: 1px solid #42f5b3;
-      padding: 2rem;
-      max-width: 800px;
-      color: #ccc;
-      overflow-y: auto;
-      max-height: 90vh;
-      text-align: left;
-      animation: fadeInModal 0.3s ease;
-    }
-    @keyframes fadeInModal {
-      from { transform: scale(0.95); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    .close-modal {
-      color: #42f5b3;
-      float: right;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
   <!-- Burger-Menü -->
@@ -79,98 +36,117 @@
     <button onclick="setLanguage('en')">🇬🇧</button>
   </div>
 
-  <section id="home">
-    <img src="img/reset42.svg" alt="reset42 Logo" class="logo">
-    <h1>&gt; reset(42)<span class="cursor"></span></h1>
-    <div class="claim" id="claim-de">Embedded. Linux. Automation. Maßgeschneidert.</div>
-    <div class="claim" id="claim-en" style="display:none;">Embedded. Linux. Automation. Tailored.</div>
-    <hr class="showcase-divider" />
-    <h2 class="showcase-title">Open Source Showcase</h2>
-  </section>
+  <div class="page">
+    <section id="home" class="hero">
+      <img src="img/reset42.svg" alt="reset42 Logo" class="logo">
+      <h1>&gt; reset(42)<span class="cursor"></span></h1>
+      <div class="claim" id="claim-de">Embedded. Linux. Automation. Maßgeschneidert.</div>
+      <div class="claim" id="claim-en" style="display:none;">Embedded. Linux. Automation. Tailored.</div>
+      <div class="badge-row">
+        <span class="pill pill-green">Labs</span>
+        <span class="pill">IoT</span>
+        <span class="pill pill-pink">Open Source</span>
+      </div>
+      <hr class="showcase-divider" />
+      <h2 class="showcase-title">Open Source Showcase</h2>
+    </section>
 
-  <section id="projekte">
-    <div class="projects">
+    <section id="projekte" class="section-card">
+      <div class="section-header">
+        <h3 class="section-title">Aktuelle Builds</h3>
+      </div>
       <div class="project-grid" id="project-grid"></div>
-    </div>
-  </section>
+    </section>
 
-  <div class="showcase-vision-btn-wrapper">
-    <button class="vision_btn" id="vision-btn" onclick="showVision()">🚀 Vision & Ausblick</button>
+    <div class="showcase-vision-btn-wrapper" id="vision">
+      <button class="vision_btn" id="vision-btn" onclick="showVision()">🚀 Vision & Ausblick</button>
+    </div>
+
+    <section id="kontakt" class="section-card">
+      <div class="section-header">
+        <h3 class="section-title">Kontakt & Links</h3>
+      </div>
+      <div class="icons">
+        <a href="https://x.com/reset_42_de" target="_blank" title="X / @reset_42_de">
+          <img src="img/x_logo.svg" alt="X Logo" width="32" height="32" />
+        </a>
+        <a href="https://instagram.com/reset_42_de" target="_blank" title="Instagram / @reset_42_de">
+          <img src="img/insta_logo.svg" alt="Instagram Logo" width="32" height="32" />
+        </a>
+        <a href="https://github.com/reset42" target="_blank" title="GitHub / reset42">
+          <img src="img/github-mark-white.svg" alt="GitHub Logo" width="32" height="32" />
+        </a>
+      </div>
+      <div class="contact">
+        Kontakt: <a href="mailto:info@reset42.de">info@reset42.de</a>
+      </div>
+      <div class="legal-row">
+        <button onclick="loadModal('impressum')">Impressum</button> |
+        <button onclick="loadModal('datenschutz')">Datenschutz</button><br>
+        reset42 ist ein technisches Frühphasenprojekt mit Startup-Charakter, aktuell noch ohne kommerzielle Angebote.<br>
+        Keine Cookies. Kein Tracking.
+      </div>
+    </section>
   </div>
 
-  <section id="vision">
-    <div id="visionModal" class="modal" onclick="hideVision()">
-      <div class="modal-content" onclick="event.stopPropagation()">
-        <span class="close-modal" onclick="hideVision()">&times;</span>
-        <div id="vision-de">
-          <h2>reset42 – Vision & Ausblick</h2>
-          <ul class="vision-list">
-            <li>🏠 Heimautomatisierung: Licht, Sensoren, Aktoren, Energieüberwachung, Systemintegration & Schnittstellen zu bestehenden Systemen</li>
-            <li>🌱 Gewächshaussteuerung: Klima, Licht, Bodenfeuchte, Aktoren uvm.</li>
-            <li>🔌 Embedded-Entwicklung & Systemintegration: Mikroprozessorsteuerung, Go, TinyGo, C, Python, Micropython, Webfrontends</li>
-            <li>🌐 Schnittstellen: MQTT, REST, WebSocket, Bluetooth, BLE, RS485, JSON</li>
-            <li>🚰 Plattformunabhängigkeit: lokale Systeme, Open-Source-freundlich</li>
-          </ul>
-          <p><em>Hinweis: reset42 ist aktuell (noch) kein Unternehmen und bietet keine Leistungen an. Es handelt sich um ein technisches Frühphasenprojekt mit Startup-Charakter.</em></p>
-        </div>
-        <div id="vision-en" style="display:none">
-          <h2>reset42 – Vision & Outlook</h2>
-          <ul class="vision-list">
-            <li>🏠 Home automation: lighting, sensors, actuators, energy monitoring, system integration & interfaces to existing systems</li>
-            <li>🌱 Greenhouse control: climate, lighting, soil moisture, actuators, and more</li>
-            <li>🔌 Embedded development & system integration: microcontroller programming, Go, TinyGo, C, Python, Micropython, web frontends</li>
-            <li>🌐 Interfaces: MQTT, REST, WebSocket, Bluetooth, BLE, RS485, JSON</li>
-            <li>🚰 Platform independence: local systems, open-source friendly</li>
-          </ul>
-          <p><em>Note: reset42 is not (yet) a company and does not offer any services. This is an early-stage technical project with a startup character.</em></p>
-        </div>
+  <div id="visionModal" class="modal" onclick="hideVision()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close-modal" onclick="hideVision()">&times;</span>
+      <div id="vision-de">
+        <h2>reset42 – Vision & Ausblick</h2>
+        <ul class="vision-list">
+          <li>🏠 Heimautomatisierung: Licht, Sensoren, Aktoren, Energieüberwachung, Systemintegration & Schnittstellen zu bestehenden Systemen</li>
+          <li>🌱 Gewächshaussteuerung: Klima, Licht, Bodenfeuchte, Aktoren uvm.</li>
+          <li>🔌 Embedded-Entwicklung & Systemintegration: Mikroprozessorsteuerung, Go, TinyGo, C, Python, Micropython, Webfrontends</li>
+          <li>🌐 Schnittstellen: MQTT, REST, WebSocket, Bluetooth, BLE, RS485, JSON</li>
+          <li>🚰 Plattformunabhängigkeit: lokale Systeme, Open-Source-freundlich</li>
+        </ul>
+        <p><em>Hinweis: reset42 ist aktuell (noch) kein Unternehmen und bietet keine Leistungen an. Es handelt sich um ein technisches Frühphasenprojekt mit Startup-Charakter.</em></p>
+      </div>
+      <div id="vision-en" style="display:none">
+        <h2>reset42 – Vision & Outlook</h2>
+        <ul class="vision-list">
+          <li>🏠 Home automation: lighting, sensors, actuators, energy monitoring, system integration & interfaces to existing systems</li>
+          <li>🌱 Greenhouse control: climate, lighting, soil moisture, actuators, and more</li>
+          <li>🔌 Embedded development & system integration: microcontroller programming, Go, TinyGo, C, Python, Micropython, web frontends</li>
+          <li>🌐 Interfaces: MQTT, REST, WebSocket, Bluetooth, BLE, RS485, JSON</li>
+          <li>🚰 Platform independence: local systems, open-source friendly</li>
+        </ul>
+        <p><em>Note: reset42 is not (yet) a company and does not offer any services. This is an early-stage technical project with a startup character.</em></p>
       </div>
     </div>
-  </section>
-
-  <section id="kontakt">
-    <div class="icons">
-      <a href="https://x.com/reset_42_de" target="_blank" title="X / @reset_42_de">
-        <img src="img/x_logo.svg" alt="X Logo" width="32" height="32" />
-      </a>
-      <a href="https://instagram.com/reset_42_de" target="_blank" title="Instagram / @reset_42_de">
-        <img src="img/insta_logo.svg" alt="Instagram Logo" width="32" height="32" />
-      </a>
-      <a href="https://github.com/reset42" target="_blank" title="GitHub / reset42">
-        <img src="img/github-mark-white.svg" alt="GitHub Logo" width="32" height="32" />
-      </a>
-    </div>
-    <div class="contact">
-      Kontakt: <a href="mailto:info@reset42.de">info@reset42.de</a>
-    </div>
-  </section>
-
-  <p style="font-size: 0.8rem; color: #555; margin-top: 2rem;">
-    <button onclick="loadModal('impressum')" style="background:none;border:none;color:#42f5b3;cursor:pointer;">Impressum</button> |
-    <button onclick="loadModal('datenschutz')" style="background:none;border:none;color:#42f5b3;cursor:pointer;">Datenschutz</button><br>
-    reset42 ist ein technisches Frühphasenprojekt mit Startup-Charakter, aktuell noch ohne kommerzielle Angebote.<br>
-    Keine Cookies. Kein Tracking.
-  </p>
+  </div>
 
   <script>
-    async function loadCards(lang) {
+    const cardHtml = {
+      de: [
+        `<h3>🌱 (r42) Gardensensor</h3>
+         <p>µPython basierte Sensoreinheit mit MQTT & Logging. Optimiert für Raspberry Pi Pico W.</p>
+         <a href="https://github.com/reset42/r42_Gardensensor_MicroPython" target="_blank">🔗 GitHub</a>`,
+        `<h3>⚡ Go4-HP-90EPC</h3>
+         <p>Plattformunabhängiges Go-Tool mit Web-UI für Live-Anzeige & Logging vom HP-90EPC Multimeter (seriell).</p>
+         <a href="https://github.com/reset42/Go4-HP-90EPC" target="_blank">🔗 GitHub</a>`
+      ],
+      en: [
+        `<h3>🌱 (r42) Gardensensor</h3>
+         <p>µPython-based sensor unit with MQTT & logging. Optimized for Raspberry Pi Pico W.</p>
+         <a href="https://github.com/reset42/r42_Gardensensor_MicroPython" target="_blank">🔗 GitHub</a>`,
+        `<h3>⚡ Go4-HP-90EPC</h3>
+         <p>Cross-platform Go tool with a clean web UI for live reading & logging from the HP-90EPC multimeter (serial).</p>
+         <a href="https://github.com/reset42/Go4-HP-90EPC" target="_blank">🔗 GitHub</a>`
+      ]
+    };
+
+    function loadCards(lang) {
       const container = document.getElementById('project-grid');
       container.innerHTML = '';
-      const baseFiles = ["card_gardensensor", "card_serialreader", "card_mqtt_logger"];
-      const suffix = lang === 'de' ? '_de.html' : '.html';
-      for (const base of baseFiles) {
-        const file = `html/cards/${base}${suffix}`;
-        try {
-          const response = await fetch(file);
-          const content = await response.text();
-          const div = document.createElement('div');
-          div.classList.add('project-card');
-          div.innerHTML = content;
-          container.appendChild(div);
-        } catch (e) {
-          console.warn(`Card not found: ${file}`);
-        }
-      }
+      const cards = cardHtml[lang === 'de' ? 'de' : 'en'];
+      cards.forEach(html => {
+        const div = document.createElement('div');
+        div.classList.add('project-card');
+        div.innerHTML = html;
+        container.appendChild(div);
+      });
     }
 
     function setLanguage(lang) {
