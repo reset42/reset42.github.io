@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="reset42 icon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" role="img" aria-label="reset42 logo">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#22c55e"/>
@@ -6,23 +6,35 @@
     </linearGradient>
   </defs>
 
-  <path
-    d="M60 10 A50 50 0 1 1 22 28"
-    fill="none"
-    stroke="url(#g)"
-    stroke-width="8"
-    stroke-linecap="round"
-  />
-  <polygon points="20,20 44,16 36,40" fill="url(#g)"/>
+  <!-- Icon -->
+  <g transform="translate(20,20)">
+    <path
+      d="M50 0 A50 50 0 1 1 12 18"
+      fill="none"
+      stroke="url(#g)"
+      stroke-width="8"
+      stroke-linecap="round"
+    />
+    <polygon points="10,10 34,6 26,30" fill="url(#g)"/>
+    <text
+      x="50"
+      y="78"
+      text-anchor="middle"
+      font-size="52"
+      font-family="system-ui, -apple-system, Segoe UI, sans-serif"
+      font-weight="600"
+      fill="url(#g)"
+    >R</text>
+  </g>
 
+  <!-- Wordmark -->
   <text
-    x="60"
-    y="82"
-    text-anchor="middle"
-    font-size="52"
+    x="140"
+    y="92"
+    font-size="56"
     font-family="system-ui, -apple-system, Segoe UI, sans-serif"
-    font-weight="600"
+    font-weight="500"
+    letter-spacing="0.02em"
     fill="url(#g)"
-  >R</text>
+  >reset42</text>
 </svg>
-
